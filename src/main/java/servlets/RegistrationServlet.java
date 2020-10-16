@@ -31,7 +31,7 @@ public class RegistrationServlet extends HttpServlet {
            preparedStatement.setString(2, email);
            preparedStatement.setString(3, password);
            preparedStatement.execute();
-            out.print("Successfully Sign in!");
+           request.getRequestDispatcher("jsp/login.jsp").include(request, response);
 
         }catch (Exception e){
             out.print(e);

@@ -11,6 +11,7 @@
     <meta charset="utf-8">
     <title>Registration</title>
     <link rel="stylesheet" href="../css/contact.css">
+    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
 <c:import url="header.jsp"/>

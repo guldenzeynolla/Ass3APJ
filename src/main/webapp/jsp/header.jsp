@@ -17,7 +17,7 @@
         <nav>
             <div class="topnav" id="myTopnav">
                 <a href="#">HOME</a>
-                <a href="#">SHOP</a>
+                <a href="shop.jsp" style="overflow: hidden;">SHOP</a>
                 <a href="#">MY</a>
                 <a href="login.jsp">LOGIN</a>
                 <a href="registration.jsp">REGISTER</a>

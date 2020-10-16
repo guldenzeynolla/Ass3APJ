@@ -9,6 +9,8 @@
 <html>
 <head>
     <title>Title</title>
+    <meta charset="utf-8">
+
 </head>
 <body>
 <pre>
@@ -16,7 +18,6 @@
     <a href="./LogOutServlet">Log out</a>
     <a href="./ShopServlet">Profile</a>
     <a href="registration.jsp">Sign up</a>
-
 </pre>
 </body>
 </html>

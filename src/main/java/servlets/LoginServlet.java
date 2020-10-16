@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
                     Cookie cookie = new Cookie("number", number);
                     response.addCookie(cookie);
                     flag = true;
-                    response.sendRedirect("./ShopServlet");
+                    response.sendRedirect("jsp/shop.jsp");
 
                 }
             }

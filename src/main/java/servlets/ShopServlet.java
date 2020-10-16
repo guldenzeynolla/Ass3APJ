@@ -1,10 +1,16 @@
 package servlets;
 
+import domain.Product;
+
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 @WebServlet( name = "ProfileServlet")
 public class ShopServlet extends HttpServlet {
@@ -25,7 +31,7 @@ public class ShopServlet extends HttpServlet {
                 if(!number.equals("") || number!=null){
                     out.print("Welcome to profile! Your number: " + number);
 
-                    out.print("<html><a href='./LogOutServlet'> LogOut </a></html>");                }
+                }
             }
 
         }else {
