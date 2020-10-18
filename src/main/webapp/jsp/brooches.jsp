@@ -2,6 +2,7 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.util.HashSet" %>
 <%--
   Created by IntelliJ IDEA.
   User: guldenzeynolla
@@ -49,6 +50,12 @@ try {
         price = resultSet.getString("price").trim();
         image = resultSet.getString("image").trim();
         category = resultSet.getString("categoryid").trim();
+        HashSet<String> hashSet = new HashSet<String>();
+        hashSet.add(image);
+        hashSet.add(productname);
+        hashSet.add(price);
+        Object[] h = hashSet.toArray();
+
         if(cnt==1){
             out.print("</div><div class=\"product-card\">");
             cnt = 0;
@@ -57,11 +64,11 @@ try {
 
        %>
         <div class="product-image">
-            <img src="../img/<%=image%>" >
+            <img src="../img/<%=h[0]%>" >
         </div>
         <div class="product-info">
-            <h5><%=productname%></h5>
-            <h6><%=price%></h6>
+            <h5><%=h[2]%></h5>
+            <h6><%=h[1]%></h6>
             <p><input type="submit" name="AddToCart"  class="button-submit" value="Add To Cart"></p>
         </div>
 

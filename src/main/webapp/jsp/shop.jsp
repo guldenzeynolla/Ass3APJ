@@ -97,6 +97,8 @@ try {//бд подкл
 %>
 </section>
 <c:import url="footer.jsp"/>
-<script src="../js/add.js"></script>
 </body>
 </html>
+<script type="text/javascript">
+
+</script>
