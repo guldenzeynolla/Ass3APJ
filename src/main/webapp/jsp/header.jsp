@@ -16,11 +16,10 @@
     <center>
         <nav>
             <div class="topnav" id="myTopnav">
-                <a href="#">HOME</a>
+                <a href="home.jsp">HOME</a>
                 <a href="shop.jsp" style="overflow: hidden;">SHOP</a>
-                <a href="#">MY</a>
-                <a href="login.jsp">LOGIN</a>
-                <a href="registration.jsp">REGISTER</a>
+                <a href="cart.jsp">MY</a>
+                <a href="../LogOutServlet">LOGOUT</a>
                 <a id="menu" href="#" class="icon">&#9776;</a>
             </div>
         </nav>

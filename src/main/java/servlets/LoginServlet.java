@@ -34,13 +34,21 @@ public class LoginServlet extends HttpServlet {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from users");
             while (resultSet.next()){
-                if(number.equals(resultSet.getString(2)) && password.equals(resultSet.getString(4)))
+                if( number!=null && password!=null && number.equals(resultSet.getString(2)) && password.equals(resultSet.getString(4)))
                 {
                     session.setAttribute("number", number);
-                    Cookie cookie = new Cookie("number", number);
-                    response.addCookie(cookie);
                     flag = true;
-                    response.sendRedirect("jsp/shop.jsp");
+
+                    if(number.equals("87081000000") && password.equals("admin")){
+
+                        response.sendRedirect("jsp/admin.jsp");
+
+                    }
+                    response.sendRedirect("ShopServlet");
+
+                }else{
+                    out.print("invalid username or password");
+                    request.getRequestDispatcher("jsp/login.jsp").include(request, response);
 
                 }
             }
@@ -48,6 +56,7 @@ public class LoginServlet extends HttpServlet {
             {
                 out.print("invalid username or password");
                 request.getRequestDispatcher("jsp/login.jsp").include(request, response);
+
             }
 
         }catch (Exception e){

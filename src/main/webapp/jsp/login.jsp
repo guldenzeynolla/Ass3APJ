@@ -15,8 +15,19 @@
     <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
-<c:import url="header.jsp"/>
+<header>
 
+    <center>
+        <nav>
+            <div class="topnav" id="myTopnav">
+                <a href="login.jsp">LOGIN</a>
+                <a href="registration.jsp">REGISTER</a>
+                <a id="menu" href="#" class="icon">&#9776;</a>
+            </div>
+        </nav>
+
+    </center>
+</header>
 <main>
     <form class="form" action="../LoginServlet">
 
@@ -30,6 +41,19 @@
         </pre>
     </form>
 </main>
-<c:import url="footer.jsp"/>
-</body>
+
+<footer>
+
+    <nav>
+        <a href="login.jsp">LOGIN</a>
+        <a href="registration.jsp">REGISTER</a>
+    </nav>
+    <div class="social">
+        <a href="https://vk.com/bbzhanara02"><img src="../img/vk.png" alt=""></a>
+        <a href="https://www.instagram.com/edelweiss_jewelry_/"><img src="../img/inst.png" alt=""></a>
+        <a href=" https://wa.me/77755399310"><img src="../img/wa.png" alt=""></a>
+    </div>
+    <p>Zeynolla Gulden.2020</p>
+
+</footer></body>
 </html>

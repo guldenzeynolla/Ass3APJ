@@ -21,10 +21,7 @@ public class LogOutServlet extends HttpServlet {
         cookie.setMaxAge(0);
         response.addCookie(cookie);
         session.invalidate();
-
-        out.print("Successfully LogOut");
-
-        out.print("<a href = 'jsp/index.jsp'> Index </a>");
+        response.sendRedirect("jsp/login.jsp");
 
     }
 }

@@ -29,7 +29,8 @@ public class ShopServlet extends HttpServlet {
             if(cookie!= null){
                 String number = cookie[0].getValue();
                 if(!number.equals("") || number!=null){
-                    out.print("Welcome to profile! Your number: " + number);
+
+                    response.sendRedirect("jsp/shop.jsp");
 
                 }
             }

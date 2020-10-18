@@ -17,8 +17,8 @@
         <a href="#">HOME</a>
         <a href="shop.jsp">SHOP</a>
         <a href="#">MY</a>
-        <a href="login.jsp">LOGIN</a>
-        <a href="registration.jsp">REGISTER</a>
+        <a href="../LogOutServlet">LOGOUT</a>
+
     </nav>
     <div class="social">
         <a href="https://vk.com/bbzhanara02"><img src="../img/vk.png" alt=""></a>

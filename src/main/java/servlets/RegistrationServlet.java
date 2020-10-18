@@ -23,15 +23,15 @@ public class RegistrationServlet extends HttpServlet {
         String password = request.getParameter("password");
 
        try {
-            Class.forName("org.postgresql.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Ass1APJ","postgres","068070");
+           Class.forName("org.postgresql.Driver");
+          Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Ass1APJ","postgres","068070");
             String sql = "insert into users(number ,email,password) values (?,?,?)";
            PreparedStatement preparedStatement = connection.prepareStatement(sql);
            preparedStatement.setString(1, number);
            preparedStatement.setString(2, email);
            preparedStatement.setString(3, password);
            preparedStatement.execute();
-           request.getRequestDispatcher("jsp/login.jsp").include(request, response);
+           response.sendRedirect("jsp/login.jsp");
 
         }catch (Exception e){
             out.print(e);
