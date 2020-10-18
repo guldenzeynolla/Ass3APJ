@@ -1,11 +1,13 @@
 package domain;
-
+//страница продуктов
 public class Product {
     private int productid;
     private String productname;
     private String price;
     private String image;
     private String categoryid;
+
+
 
     public int getProductid() {
         return productid;

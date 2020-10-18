@@ -2,6 +2,10 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.util.HashSet" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="domain.Product" %>
+<%@ page import="java.util.LinkedList" %>
 <%--
   Created by IntelliJ IDEA.
   User: guldenzeynolla
@@ -49,6 +53,10 @@ try {
         price = resultSet.getString("price").trim();
         image = resultSet.getString("image").trim();
         category = resultSet.getString("categoryid").trim();
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add(image);
+        linkedList.add(productname);
+        linkedList.add(price);
         if(cnt==1){
             out.print("</div><div class=\"product-card\">");
             cnt = 0;
@@ -57,11 +65,11 @@ try {
 
        %>
         <div class="product-image">
-            <img src="../img/<%=image%>" >
+            <img src="../img/<%=linkedList.getFirst()%>" >
         </div>
         <div class="product-info">
-            <h5><%=productname%></h5>
-            <h6><%=price%></h6>
+            <h5><%=linkedList.get(1)%></h5>
+            <h6><%=linkedList.getLast()%></h6>
             <p><input type="submit" name="AddToCart"  class="button-submit" value="Add To Cart"></p>
         </div>
 

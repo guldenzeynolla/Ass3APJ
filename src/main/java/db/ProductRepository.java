@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class ProductRepository implements IProductRepository {
-
+//тут все что я использовала для продуктов
     private IDBRepository dbrepo = new PostgresRepository();
     public static List<Product> ls = new ArrayList<>();
 

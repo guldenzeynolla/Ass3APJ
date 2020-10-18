@@ -24,13 +24,13 @@ public class ShopServlet extends HttpServlet {
 
         HttpSession session = request.getSession(false);
 
-        if(session!= null){
+        if(session!= null){//если есть сессия
             Cookie cookie[]= request.getCookies();
-            if(cookie!= null){
+            if(cookie!= null){//есть куки
                 String number = cookie[0].getValue();
                 if(!number.equals("") || number!=null){
 
-                    response.sendRedirect("jsp/shop.jsp");
+                    response.sendRedirect("jsp/shop.jsp");//отпр  шоп
 
                 }
             }

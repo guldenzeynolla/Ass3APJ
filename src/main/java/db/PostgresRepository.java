@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class PostgresRepository implements IDBRepository {
 
     @Override
-    public Connection getConnection() {
+    public Connection getConnection() {//подкл к базе
         try {
             Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Ass1APJ", "postgres", "068070");
             return connection;

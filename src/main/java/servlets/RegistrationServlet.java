@@ -18,12 +18,12 @@ public class RegistrationServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        String number = request.getParameter("number");
+        String number = request.getParameter("number");//вытаскиваю данные
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
        try {
-           Class.forName("org.postgresql.Driver");
+           Class.forName("org.postgresql.Driver");//подкл к дб
           Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Ass1APJ","postgres","068070");
             String sql = "insert into users(number ,email,password) values (?,?,?)";
            PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -31,7 +31,7 @@ public class RegistrationServlet extends HttpServlet {
            preparedStatement.setString(2, email);
            preparedStatement.setString(3, password);
            preparedStatement.execute();
-           response.sendRedirect("jsp/login.jsp");
+           response.sendRedirect("jsp/login.jsp");//отпр в логин
 
         }catch (Exception e){
             out.print(e);

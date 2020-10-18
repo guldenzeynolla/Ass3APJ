@@ -1,5 +1,5 @@
 package domain;
-
+//стр инфы юзеров
 public class User {
     private int userid ;
     private String number;

@@ -23,7 +23,7 @@
 <div class="container">
     <h2>LIST</h2>
     <p>
-        <a class="btn btn-primary" href="../AdminServlet?action=AddOrEdit">ADD</a>
+        <a class="btn btn-primary" href="/AdminServlet?action=AddOrEdit">ADD</a>
     </p>
     <table class="table table-bordered">
         <thead>
@@ -47,7 +47,7 @@
             <td>${item.categoryid}</td>
 
             <td>
-               <a class="btn btn-primary btn-sm"href="#">Edit</a> |
+               <a class="btn btn-primary btn-sm"href="/AdminServlet?action=AddOrEdit">Edit</a> |
                <a class="btn btn-danger btn-sm" href="">Del</a></td>
        </tr>
 

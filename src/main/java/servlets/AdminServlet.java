@@ -26,12 +26,17 @@ public class AdminServlet extends HttpServlet {
                 request.getRequestDispatcher("view-admin.jsp").forward(request, response);
                 return;
             }
-            switch (action){
+           switch (action){
                 case "AddOrEdit":
                     id = Integer.parseInt(request.getParameter("productid"));
                     product = productRepository.findByID(id);
                     if(product == null){
-                        request.setAttribute("PRODUCT", new Product( id,"","","",""));
+                        request.setAttribute("PRODUCT", new Product(
+                                 id,
+                                "",
+                                "",
+                                "",
+                                ""));
                     }
                     request.setAttribute("PRODUCT", product);
                     request.setAttribute(("ACTION"), "SaveOrUpdate");

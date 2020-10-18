@@ -2,6 +2,10 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.util.Queue" %>
+<%@ page import="domain.Product" %>
+<%@ page import="java.util.LinkedList" %>
+<%@ page import="java.util.HashMap" %>
 <%--
   Created by IntelliJ IDEA.
   User: guldenzeynolla
@@ -40,19 +44,29 @@
     <div class="product-card">
 
     <%
-try {
+try {//бд подкл
     Class.forName("org.postgresql.Driver");
     Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Ass1APJ", "postgres", "068070");
     Statement statement = connection.createStatement();
     ResultSet resultSet = statement.executeQuery("select * from products");
-    int cnt= 0;
+    int cnt= 0;//для красивости
+
+
     while (resultSet.next()) {
-        String productname,price,image,category;
+
+        String productname,price,image,category;//вытаскию все
         productname = resultSet.getString("productname").trim();
         price = resultSet.getString("price").trim();
         image = resultSet.getString("image").trim();
         category = resultSet.getString("categoryid").trim();
-        if(cnt==1){
+
+        HashMap<String,String> hashMap = new HashMap<String, String>(); //создаю мап
+        hashMap.put("productname", productname);//добавляю все в мап
+        hashMap.put("price", price);
+        hashMap.put("image", image);
+        hashMap.put("category", category);
+
+        if(cnt==1){//для красоты
             out.print("</div><div class=\"product-card\">");
             cnt = 0;
         }
@@ -60,11 +74,11 @@ try {
 
        %>
     <div class="product-image">
-            <img src="../img/<%=image%>" >
+            <img src="../img/<%=hashMap.get("image")%>" >//вытаскиваю в мап
         </div>
         <div class="product-info">
-            <h5><%=productname%></h5>
-            <h6><%=price%></h6>
+            <h5><%=hashMap.get("productname")%></h5>
+            <h6><%=hashMap.get("price")%></h6>
             <p>
                 <a class="button-submit" href="#"> Add To Cart </a>
 

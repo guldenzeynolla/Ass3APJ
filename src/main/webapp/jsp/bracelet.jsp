@@ -2,6 +2,9 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.util.Queue" %>
+<%@ page import="domain.Product" %>
+<%@ page import="java.util.LinkedList" %>
 <%--
   Created by IntelliJ IDEA.
   User: guldenzeynolla
@@ -49,6 +52,12 @@ try {
         price = resultSet.getString("price").trim();
         image = resultSet.getString("image").trim();
         category = resultSet.getString("categoryid").trim();
+        Queue<String > productQueue = new LinkedList<String>();
+        productQueue.add(productname);
+        productQueue.add(price);
+        productQueue.add(image);
+        productQueue.add(category);
+
         if(cnt==1){
             out.print("</div><div class=\"product-card\">");
             cnt = 0;
@@ -57,11 +66,11 @@ try {
 
        %>
         <div class="product-image">
-            <img src="../img/<%=image%>" >
+            <img src="../img/<%=productQueue.toArray()[2]%>" >
         </div>
         <div class="product-info">
-            <h5><%=productname%></h5>
-            <h6><%=price%></h6>
+            <h5><%=productQueue.toArray()[0]%></h5>
+            <h6><%=productQueue.toArray()[1]%></h6>
             <p><input type="submit" name="AddToCart"  class="button-submit" value="Add To Cart"></p>
         </div>
 

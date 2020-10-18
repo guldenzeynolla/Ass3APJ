@@ -16,12 +16,12 @@ public class LogOutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
 
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession(false);//не создавать еще один куки
         Cookie cookie = new Cookie("number", "");
         cookie.setMaxAge(0);
         response.addCookie(cookie);
-        session.invalidate();
-        response.sendRedirect("jsp/login.jsp");
+        session.invalidate();//закончить сессию
+        response.sendRedirect("jsp/login.jsp");//отпр в логин
 
     }
 }
